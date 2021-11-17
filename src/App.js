@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Header from "./components/Header";
+import Form from "./components/Form";
 function App() {
   return (
     <Fragment>
@@ -8,7 +9,7 @@ function App() {
       />
 
       <div className='container grey darken-3'>
-        <h1>Form here</h1>
+        <Form/>
       </div>
     </Fragment>
   );
