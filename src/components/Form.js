@@ -25,13 +25,13 @@ const Form = ({saveCategory}) => {
 
     return ( 
         <div className={`${styles.finder} row`}>
-            <div className='col s12 m8 offset-m2'>
+            <div className='col s6 m8 offset-m2'>
                 <form 
                     onSubmit={findNews}
                 >
                     <h2 className={styles.heading}>Find news by category</h2>
                     <SelectNews/>
-                    <div className='input-field col s12'>
+                    <div className='input-field col s6'>
                         <input
                             // style={{color: 'black'}} 
                             type="submit" 
