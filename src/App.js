@@ -1,10 +1,12 @@
 import { Fragment, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import NewsList from "./components/NewsList";
 function App() {
 
   // define category and news
   const [category, saveCategory] = useState('');
+  const [news, saveNews] = useState([])
 
   useEffect(() => {
     const consultAPI = async () => {
@@ -14,7 +16,7 @@ function App() {
       const res = await fetch(url)
       const news = await res.json()
 
-      console.log(news);
+      saveNews(news.articles);
     }
     consultAPI()
   }, [category])
@@ -25,9 +27,13 @@ function App() {
           title="News Finder"
       />
 
-      <div className='container grey darken-3'>
+      <div className='container blue-grey darken-4'>
         <Form 
           saveCategory={saveCategory}
+        />
+
+        <NewsList
+          news={news}
         />
       </div>
     </Fragment>
