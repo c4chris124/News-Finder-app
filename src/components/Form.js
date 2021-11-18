@@ -1,7 +1,7 @@
 import styles from './Form.module.css'
-import useSelect from '../hooks/useSelect';
+import useSelect from '../hooks/useSelect'
 
-const Form = () => {
+const Form = ({saveCategory}) => {
 
     const OPTIONS = [
         {value: 'general', label: 'General'},
@@ -12,13 +12,22 @@ const Form = () => {
         {value: 'sports', label: 'Sports'},
         {value: 'technology', label: 'Technology'}
     ]
-    
+
+    // use custom hook
     const [category, SelectNews] = useSelect('general', OPTIONS);
+
+    // submit to form, pass category to app.js
+    const findNews = e => {
+        e.preventDefault()
+        saveCategory(category)
+    }
 
     return ( 
         <div className={`${styles.finder} row`}>
             <div className='col s12 m8 offset-m2'>
-                <form action="">
+                <form 
+                    onSubmit={findNews}
+                >
                     <h2 className={styles.heading}>Find news by category</h2>
                     <SelectNews/>
                     <div className='input-field col s12'>
@@ -34,4 +43,4 @@ const Form = () => {
      );
 }
  
-export default Form;
+export default Form

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
 
 const useSelect = (initialState, options) => {
 
-    //custom hoo state
+    //custom hook state
     const [state, updateState] = useState(initialState)
 
     const SelectNews = () => (
@@ -20,4 +20,4 @@ const useSelect = (initialState, options) => {
     return [state, SelectNews]
 }
  
-export default useSelect;
+export default useSelect
